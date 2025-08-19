@@ -1,0 +1,151 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1E40AF 0%, #1E3A8A 100%);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.navbar {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 1.5rem 0.8rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.sidebar li.active {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar li.active a {
+  font-weight: 600;
+}
+
+.sidebar a:hover {
+  color: #E0E7FF;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  
+  .navbar h2 {
+    font-size: 1rem;
+    justify-content: center;
+  }
+  
+  .navbar h2 span:first-child {
+    margin-right: 0;
+  }
+  
+  .navbar h2 span:last-child {
+    display: none;
+  }
+  
+  .sidebar a {
+    justify-content: center;
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .sidebar a span:last-child {
+    display: none;
+  }
+  
+  .sidebar li:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Animatsiya */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar li {
+  animation: slideIn 0.4s ease-out;
+}
+
+.sidebar li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.sidebar li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.sidebar li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Scrollbar stil */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
