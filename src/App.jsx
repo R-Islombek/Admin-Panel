@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css"
 import Sidebar from "./Components/Sidebar/Sidebar.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
@@ -6,6 +7,7 @@ import Users from "./Pages/Users/Users.jsx";
 import Settings from "./Pages/Settings/Settings.jsx";
 import Login from "./Auth/Login.jsx";
 import ProtectedRoute from "./Auth/ProtectedRoute.jsx";
+
 
 function App() {
   return (

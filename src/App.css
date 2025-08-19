@@ -1,27 +1,45 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.App {
+.app {
   display: flex;
-  height: 100%;
 }
+
+/* Sidebar chap tomonda turadi */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e3c72, #2a5298);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+}
+
+/* Navbar + Content qismi */
 .main {
-  flex: 1;
+  margin-left: 250px; /* Sidebar kengligi */
+  width: calc(100% - 250px);
   display: flex;
   flex-direction: column;
-  margin-left: 280px;
+  min-height: 100vh;
 }
+
+/* Navbar tepada turadi */
+.navbar {
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Sahifa contenti */
 .content {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
-  background-color: #f5f7fb;
-}
-
-@media (max-width: 768px) {
-  .main {
-    margin-left: 70px;
-  }
+  background: #f8fafc;
 }
