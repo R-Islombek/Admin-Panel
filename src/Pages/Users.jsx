@@ -1,8 +1,5 @@
 import { useState } from "react";
-import "./Users.css"
 import UserForm from "../../Components/UseForm/UserForm";
-
-
 function Users() {
   const [users, setUsers] = useState([
     { id: 1, name: "Islombek" },

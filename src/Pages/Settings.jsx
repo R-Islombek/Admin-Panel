@@ -1,6 +1,4 @@
 
-import "./Settings.css"
-
 function Settings() {
   const handleLogout = () => {
     localStorage.removeItem("auth");

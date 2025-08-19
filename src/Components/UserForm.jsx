@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./UserForm.css"
 function UserForm({ addUser }) {
   const [name, setName] = useState("");
 
