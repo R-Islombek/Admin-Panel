@@ -1,25 +1,37 @@
+import { useNavigate } from "react-router-dom";
+import "../Styles/Dashboard.css";
 
-function Dashboard() {
+export default function Dashboard() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    
+    localStorage.removeItem("token");
+
+    navigate("/");
+  };
+
   return (
-    <div>
-      <h2>📊 Dashboard</h2>
-      <p>Bu yerda sayt statistikasi bo‘ladi.</p>
+    <div className="dashboard-container">
+      <aside className="sidebar">
+        <h2>⚡ Admin Panel</h2>
+        <ul>
+          <li>👥 Users</li>
+          <li>⚙️ Settings</li>
+          <li>📊 Reports</li>
+        </ul>
+        <button onClick={handleLogout}>🚪 Logout</button>
+      </aside>
 
-      <div className="stats">
-        <div className="card">
-          <h3>👥 Users</h3>
-          <p>150 ta foydalanuvchi</p>
+      <main className="content">
+        <h1>Welcome, Admin! 🎉</h1>
+        <p>Bu zamonaviy dashboard sahifasi.</p>
+        <div className="cards">
+          <div className="card">👥 150 Users</div>
+          <div className="card">📦 80 Orders</div>
+          <div className="card">💰 $12,300 Revenue</div>
         </div>
-        <div className="card">
-          <h3>📦 Orders</h3>
-          <p>85 ta buyurtma</p>
-        </div>
-        <div className="card">
-          <h3>💰 Income</h3>
-          <p>$3,200</p>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }
-export default Dashboard;
