@@ -1,13 +1,29 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "../Styles/Dashboard.css";
+import { useState } from "react";
 
 export default function Dashboard() {
+
+  const [users, setUsers] = useState([]);
+
+  async function fetchUsers() {
+    try {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      setUsers(res.data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+
   const navigate = useNavigate();
-
   const handleLogout = () => {
-    
     localStorage.removeItem("token");
-
     navigate("/");
   };
 
@@ -24,13 +40,12 @@ export default function Dashboard() {
       </aside>
 
       <main className="content">
-        <h1>Welcome, Admin! 🎉</h1>
-        <p>Bu zamonaviy dashboard sahifasi.</p>
-        <div className="cards">
-          <div className="card">👥 150 Users</div>
-          <div className="card">📦 80 Orders</div>
-          <div className="card">💰 $12,300 Revenue</div>
-        </div>
+        {users.map((user) => (
+          <div key={user.id}>
+            <img src={`https://picsum.photos/id/${user.id}/300/300`} alt={user.name} />
+            <h1>{user.name}</h1>
+          </div>
+        ))}
       </main>
     </div>
   );
